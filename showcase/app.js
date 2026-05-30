@@ -1,4 +1,4 @@
-const replayUrl = "./data/replay.json?v=1.0.0";
+const replayUrl = "./data/replay.json?v=1.0.1";
 
 const state = {
   data: null,
@@ -19,8 +19,24 @@ function escapeHtml(value) {
 }
 
 function averageStepReward(episode) {
-  if (!episode.steps.length) return 0;
+  if (!episode.steps?.length) return 0;
   return episode.steps.reduce((sum, step) => sum + Number(step.reward ?? 0), 0) / episode.steps.length;
+}
+
+function runModel(run) {
+  return run.model ?? run.config?.agent_config?.model ?? "model";
+}
+
+function normalizeEpisodes(data) {
+  return (data.episodes ?? []).map((episode, index) => {
+    const replaySteps = data.replay?.[episode.id];
+    const steps = Array.isArray(episode.steps) ? episode.steps : replaySteps ?? [];
+    return {
+      ...episode,
+      label: episode.label ?? `Episode ${index + 1}`,
+      steps,
+    };
+  });
 }
 
 function tileClass(value) {
@@ -43,7 +59,7 @@ function renderMetrics() {
   const penalties = steps.filter((step) => Number(step.reward) < 0).length;
 
   $("averageReward").textContent = Number(run.scores?.average_reward ?? 0).toFixed(2);
-  $("runMeta").textContent = `${run.model ?? "model"} · ${state.episodes.length} episodes · vow ${state.data.binding_vow_version}`;
+  $("runMeta").textContent = `${runModel(run)} · ${state.episodes.length} episodes · vow ${state.data.binding_vow_version}`;
   $("runIdPill").textContent = run.id ?? "--";
   $("correctCount").textContent = `${correct}/${steps.length}`;
   $("penaltyCount").textContent = `${penalties}/${steps.length}`;
@@ -146,7 +162,7 @@ function renderReplay() {
 
   const obs = step.observation;
   const info = step.info ?? {};
-  $("episodeMeta").textContent = `${episode.label} · step ${step.step}/${episode.steps.length}`;
+  $("episodeMeta").textContent = `${episode.label ?? "Episode"} · step ${step.step}/${episode.steps.length}`;
   $("episodeTitle").textContent = `Seed ${episode.seed}: choose the next 2048 move`;
   $("rewardPill").textContent = `Step reward ${Number(step.reward).toFixed(2)}`;
   $("chosenMove").textContent = step.action;
@@ -180,7 +196,7 @@ async function init() {
   const response = await fetch(replayUrl);
   if (!response.ok) throw new Error(`Could not load ${replayUrl}`);
   state.data = await response.json();
-  state.episodes = state.data.episodes ?? [];
+  state.episodes = normalizeEpisodes(state.data);
   if (!state.episodes.length) throw new Error("Replay contains no episodes.");
   render();
   $("nextStepButton").addEventListener("click", nextStep);
