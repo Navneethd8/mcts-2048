@@ -1,0 +1,50 @@
+{
+  "id": "mcts-2048",
+  "adapter": "adapter.py",
+  "name": "MCTS 2048",
+  "description": "Evaluate whether an agent can select strong 2048 moves by following a Monte Carlo tree search policy under non-binary streak rewards.",
+
+  "binding_vow": {
+    "version": "1.0.0",
+    "tier": "tier1",
+    "description": "Each episode is a short deterministic 2048 game. At every turn the environment exposes the board, valid moves, and a compact Monte Carlo tree search policy table computed with numpy and pandas. The agent must return one of up, down, left, or right. Rank-1 MCTS moves earn positive rewards that increase with a correct streak; legal lower-ranked moves and invalid moves receive increasingly negative penalties, creating a non-binary reward signal over the whole game.",
+
+    "observation_space": {
+      "type": "json",
+      "description": "{ \"game\": \"2048\", \"seed\": number, \"step\": number, \"max_steps\": number, \"score\": number, \"max_tile\": number, \"empty_cells\": number, \"board\": number[4][4], \"valid_moves\": string[], \"mcts_policy\": [{ \"move\": string, \"rank\": number, \"visits\": number, \"mean_value\": number, \"immediate_score\": number, \"empty_after\": number }], \"instructions\": string }"
+    },
+
+    "action_space": {
+      "type": "text",
+      "description": "A single 2048 move: up, down, left, or right. JSON actions with a \"move\" or \"action\" field are also accepted."
+    },
+
+    "reward": {
+      "type": "scalar",
+      "range": { "low": -2.0, "high": 2.0 },
+      "description": "Non-binary shaped reward. Matching the rank-1 MCTS move starts at +1.0 and increases up to +2.0 with a correct streak. Legal but lower-ranked moves receive rank- and streak-scaled negative rewards. Invalid moves receive larger escalating penalties."
+    },
+
+    "episode": {
+      "max_steps": 12,
+      "deterministic_reset": true,
+      "supports_seed": true,
+      "parallel_episodes": 1,
+      "observability": "full"
+    },
+
+    "techniques": []
+  },
+
+  "scoring": {
+    "primary_metric": "average_reward",
+    "higher_is_better": true,
+    "metrics": [
+      {
+        "name": "average_reward",
+        "type": "episode_reward",
+        "aggregation": "mean"
+      }
+    ]
+  }
+}

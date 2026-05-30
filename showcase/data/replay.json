@@ -1,0 +1,2280 @@
+{
+  "schema_version": "mcts-2048-showcase-v1",
+  "env_id": "mcts-2048",
+  "binding_vow_version": "1.0.0",
+  "run": {
+    "id": "showcase-local-mcts-2048",
+    "status": "curated",
+    "model": "MCTS policy follower",
+    "scores": {
+      "average_reward": 3.913
+    }
+  },
+  "episodes": [
+    {
+      "id": "episode-1",
+      "seed": 11,
+      "label": "Clean MCTS agreement",
+      "total_reward": 8.25,
+      "steps": [
+        {
+          "step": 1,
+          "observation": {
+            "game": "2048",
+            "seed": 11,
+            "step": 1,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 2,
+            "empty_cells": 14,
+            "board": [
+              [
+                0,
+                2,
+                2,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "down",
+                "rank": 1,
+                "visits": 6,
+                "mean_value": 1147.84,
+                "immediate_score": 0,
+                "empty_after": 14
+              },
+              {
+                "move": "left",
+                "rank": 2,
+                "visits": 6,
+                "mean_value": 1142.173,
+                "immediate_score": 4,
+                "empty_after": 15
+              },
+              {
+                "move": "right",
+                "rank": 3,
+                "visits": 6,
+                "mean_value": 1022.7,
+                "immediate_score": 4,
+                "empty_after": 15
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks down first. The agent selects down, rank 1, after comparing rollout value and board mobility.",
+          "action": "down",
+          "reward": 1.0,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "down",
+            "best_move": "down",
+            "rank": 1,
+            "score_gained": 0,
+            "total_score": 0,
+            "correct_streak": 1,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 2,
+          "observation": {
+            "game": "2048",
+            "seed": 11,
+            "step": 2,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 2,
+            "empty_cells": 13,
+            "board": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2,
+                0
+              ],
+              [
+                0,
+                2,
+                2,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "left",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1160.392,
+                "immediate_score": 4,
+                "empty_after": 14
+              },
+              {
+                "move": "down",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1130.888,
+                "immediate_score": 4,
+                "empty_after": 14
+              },
+              {
+                "move": "up",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1069.712,
+                "immediate_score": 4,
+                "empty_after": 14
+              },
+              {
+                "move": "right",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 1046.904,
+                "immediate_score": 4,
+                "empty_after": 14
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks left first. The agent selects left, rank 1, after comparing rollout value and board mobility.",
+          "action": "left",
+          "reward": 1.15,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "left",
+            "best_move": "left",
+            "rank": 1,
+            "score_gained": 4,
+            "total_score": 4,
+            "correct_streak": 2,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 3,
+          "observation": {
+            "game": "2048",
+            "seed": 11,
+            "step": 3,
+            "max_steps": 6,
+            "score": 4,
+            "max_tile": 4,
+            "empty_cells": 13,
+            "board": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "up",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1095.504,
+                "immediate_score": 0,
+                "empty_after": 13
+              },
+              {
+                "move": "down",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1062.056,
+                "immediate_score": 0,
+                "empty_after": 13
+              },
+              {
+                "move": "right",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1017.016,
+                "immediate_score": 4,
+                "empty_after": 14
+              },
+              {
+                "move": "left",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 1013.376,
+                "immediate_score": 4,
+                "empty_after": 14
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks up first. The agent selects up, rank 1, after comparing rollout value and board mobility.",
+          "action": "up",
+          "reward": 1.3,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "up",
+            "best_move": "up",
+            "rank": 1,
+            "score_gained": 0,
+            "total_score": 4,
+            "correct_streak": 3,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 4,
+          "observation": {
+            "game": "2048",
+            "seed": 11,
+            "step": 4,
+            "max_steps": 6,
+            "score": 4,
+            "max_tile": 4,
+            "empty_cells": 12,
+            "board": [
+              [
+                2,
+                2,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "right",
+                "rank": 1,
+                "visits": 6,
+                "mean_value": 1059.847,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "left",
+                "rank": 2,
+                "visits": 6,
+                "mean_value": 1035.42,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "down",
+                "rank": 3,
+                "visits": 6,
+                "mean_value": 991.227,
+                "immediate_score": 0,
+                "empty_after": 12
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks right first. The agent selects right, rank 1, after comparing rollout value and board mobility.",
+          "action": "right",
+          "reward": 1.45,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "right",
+            "best_move": "right",
+            "rank": 1,
+            "score_gained": 4,
+            "total_score": 8,
+            "correct_streak": 4,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 5,
+          "observation": {
+            "game": "2048",
+            "seed": 11,
+            "step": 5,
+            "max_steps": 6,
+            "score": 8,
+            "max_tile": 4,
+            "empty_cells": 12,
+            "board": [
+              [
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                0,
+                2,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "left",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1118.656,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "right",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1036.56,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "up",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1019.976,
+                "immediate_score": 8,
+                "empty_after": 13
+              },
+              {
+                "move": "down",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 1011.288,
+                "immediate_score": 8,
+                "empty_after": 13
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks left first. The agent selects left, rank 1, after comparing rollout value and board mobility.",
+          "action": "left",
+          "reward": 1.6,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "left",
+            "best_move": "left",
+            "rank": 1,
+            "score_gained": 4,
+            "total_score": 12,
+            "correct_streak": 5,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 6,
+          "observation": {
+            "game": "2048",
+            "seed": 11,
+            "step": 6,
+            "max_steps": 6,
+            "score": 12,
+            "max_tile": 4,
+            "empty_cells": 12,
+            "board": [
+              [
+                4,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "up",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1057.352,
+                "immediate_score": 8,
+                "empty_after": 13
+              },
+              {
+                "move": "right",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1055.008,
+                "immediate_score": 0,
+                "empty_after": 12
+              },
+              {
+                "move": "left",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 970.512,
+                "immediate_score": 0,
+                "empty_after": 12
+              },
+              {
+                "move": "down",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 953.688,
+                "immediate_score": 8,
+                "empty_after": 13
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks up first. The agent selects up, rank 1, after comparing rollout value and board mobility.",
+          "action": "up",
+          "reward": 1.75,
+          "terminated": true,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "up",
+            "best_move": "up",
+            "rank": 1,
+            "score_gained": 8,
+            "total_score": 20,
+            "correct_streak": 6,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "seed": 23,
+      "label": "One lower-ranked detour",
+      "total_reward": 2.45,
+      "steps": [
+        {
+          "step": 1,
+          "observation": {
+            "game": "2048",
+            "seed": 23,
+            "step": 1,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 2,
+            "empty_cells": 14,
+            "board": [
+              [
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "left",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1078.68,
+                "immediate_score": 0,
+                "empty_after": 14
+              },
+              {
+                "move": "down",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1054.88,
+                "immediate_score": 0,
+                "empty_after": 14
+              },
+              {
+                "move": "right",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1050.976,
+                "immediate_score": 0,
+                "empty_after": 14
+              },
+              {
+                "move": "up",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 1047.12,
+                "immediate_score": 0,
+                "empty_after": 14
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks left first. The agent selects left, rank 1, after comparing rollout value and board mobility.",
+          "action": "left",
+          "reward": 1.0,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "left",
+            "best_move": "left",
+            "rank": 1,
+            "score_gained": 0,
+            "total_score": 0,
+            "correct_streak": 1,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 2,
+          "observation": {
+            "game": "2048",
+            "seed": 23,
+            "step": 2,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 2,
+            "empty_cells": 13,
+            "board": [
+              [
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "up",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1108.968,
+                "immediate_score": 4,
+                "empty_after": 14
+              },
+              {
+                "move": "right",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1044.096,
+                "immediate_score": 4,
+                "empty_after": 14
+              },
+              {
+                "move": "left",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1019.04,
+                "immediate_score": 4,
+                "empty_after": 14
+              },
+              {
+                "move": "down",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 954.784,
+                "immediate_score": 4,
+                "empty_after": 14
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks up first. The agent selects right, rank 2, after comparing rollout value and board mobility.",
+          "action": "right",
+          "reward": -0.7,
+          "terminated": false,
+          "info": {
+            "correct": false,
+            "valid": true,
+            "chosen_move": "right",
+            "best_move": "up",
+            "rank": 2,
+            "score_gained": 4,
+            "total_score": 4,
+            "correct_streak": 0,
+            "wrong_streak": 1,
+            "reason": "legal but below top MCTS move"
+          }
+        },
+        {
+          "step": 3,
+          "observation": {
+            "game": "2048",
+            "seed": 23,
+            "step": 3,
+            "max_steps": 6,
+            "score": 4,
+            "max_tile": 4,
+            "empty_cells": 13,
+            "board": [
+              [
+                0,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left"
+            ],
+            "mcts_policy": [
+              {
+                "move": "left",
+                "rank": 1,
+                "visits": 6,
+                "mean_value": 1077.467,
+                "immediate_score": 0,
+                "empty_after": 13
+              },
+              {
+                "move": "down",
+                "rank": 2,
+                "visits": 6,
+                "mean_value": 1031.427,
+                "immediate_score": 0,
+                "empty_after": 13
+              },
+              {
+                "move": "up",
+                "rank": 3,
+                "visits": 6,
+                "mean_value": 1011.48,
+                "immediate_score": 0,
+                "empty_after": 13
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks left first. The agent selects left, rank 1, after comparing rollout value and board mobility.",
+          "action": "left",
+          "reward": 1.0,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "left",
+            "best_move": "left",
+            "rank": 1,
+            "score_gained": 0,
+            "total_score": 4,
+            "correct_streak": 1,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 4,
+          "observation": {
+            "game": "2048",
+            "seed": 23,
+            "step": 4,
+            "max_steps": 6,
+            "score": 4,
+            "max_tile": 4,
+            "empty_cells": 12,
+            "board": [
+              [
+                2,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                4,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "up",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1060.04,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "right",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 987.808,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "left",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 983.656,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "down",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 980.296,
+                "immediate_score": 4,
+                "empty_after": 13
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks up first. The agent selects up, rank 1, after comparing rollout value and board mobility.",
+          "action": "up",
+          "reward": 1.15,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "up",
+            "best_move": "up",
+            "rank": 1,
+            "score_gained": 4,
+            "total_score": 8,
+            "correct_streak": 2,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 5,
+          "observation": {
+            "game": "2048",
+            "seed": 23,
+            "step": 5,
+            "max_steps": 6,
+            "score": 8,
+            "max_tile": 4,
+            "empty_cells": 12,
+            "board": [
+              [
+                4,
+                4,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "right",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1053.904,
+                "immediate_score": 8,
+                "empty_after": 13
+              },
+              {
+                "move": "down",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1032.896,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "up",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1025.72,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "left",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 1003.304,
+                "immediate_score": 8,
+                "empty_after": 13
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks right first. The agent selects up, rank 3, after comparing rollout value and board mobility.",
+          "action": "up",
+          "reward": -1.0,
+          "terminated": false,
+          "info": {
+            "correct": false,
+            "valid": true,
+            "chosen_move": "up",
+            "best_move": "right",
+            "rank": 3,
+            "score_gained": 4,
+            "total_score": 12,
+            "correct_streak": 0,
+            "wrong_streak": 1,
+            "reason": "legal but below top MCTS move"
+          }
+        },
+        {
+          "step": 6,
+          "observation": {
+            "game": "2048",
+            "seed": 23,
+            "step": 6,
+            "max_steps": 6,
+            "score": 12,
+            "max_tile": 4,
+            "empty_cells": 12,
+            "board": [
+              [
+                4,
+                4,
+                0,
+                4
+              ],
+              [
+                0,
+                0,
+                2,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "up",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1006.52,
+                "immediate_score": 0,
+                "empty_after": 12
+              },
+              {
+                "move": "right",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 998.264,
+                "immediate_score": 8,
+                "empty_after": 13
+              },
+              {
+                "move": "left",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 997.0,
+                "immediate_score": 8,
+                "empty_after": 13
+              },
+              {
+                "move": "down",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 937.12,
+                "immediate_score": 0,
+                "empty_after": 12
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks up first. The agent selects up, rank 1, after comparing rollout value and board mobility.",
+          "action": "up",
+          "reward": 1.0,
+          "terminated": true,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "up",
+            "best_move": "up",
+            "rank": 1,
+            "score_gained": 0,
+            "total_score": 12,
+            "correct_streak": 1,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "seed": 37,
+      "label": "Invalid move penalty",
+      "total_reward": 2.2,
+      "steps": [
+        {
+          "step": 1,
+          "observation": {
+            "game": "2048",
+            "seed": 37,
+            "step": 1,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 4,
+            "empty_cells": 14,
+            "board": [
+              [
+                0,
+                0,
+                2,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "right",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1127.504,
+                "immediate_score": 0,
+                "empty_after": 14
+              },
+              {
+                "move": "left",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1075.36,
+                "immediate_score": 0,
+                "empty_after": 14
+              },
+              {
+                "move": "up",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1058.008,
+                "immediate_score": 0,
+                "empty_after": 14
+              },
+              {
+                "move": "down",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 1016.168,
+                "immediate_score": 0,
+                "empty_after": 14
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks right first. The agent selects right, rank 1, after comparing rollout value and board mobility.",
+          "action": "right",
+          "reward": 1.0,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "right",
+            "best_move": "right",
+            "rank": 1,
+            "score_gained": 0,
+            "total_score": 0,
+            "correct_streak": 1,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 2,
+          "observation": {
+            "game": "2048",
+            "seed": 37,
+            "step": 2,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 4,
+            "empty_cells": 13,
+            "board": [
+              [
+                0,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left"
+            ],
+            "mcts_policy": [
+              {
+                "move": "left",
+                "rank": 1,
+                "visits": 6,
+                "mean_value": 1094.393,
+                "immediate_score": 0,
+                "empty_after": 13
+              },
+              {
+                "move": "up",
+                "rank": 2,
+                "visits": 6,
+                "mean_value": 1088.613,
+                "immediate_score": 0,
+                "empty_after": 13
+              },
+              {
+                "move": "down",
+                "rank": 3,
+                "visits": 6,
+                "mean_value": 1070.187,
+                "immediate_score": 0,
+                "empty_after": 13
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The agent emitted an invalid direction, triggering the escalating penalty path.",
+          "action": "northwest",
+          "reward": -1.25,
+          "terminated": false,
+          "info": {
+            "correct": false,
+            "valid": false,
+            "chosen_move": "northwest",
+            "best_move": "left",
+            "rank": null,
+            "reason": "invalid move",
+            "correct_streak": 0,
+            "wrong_streak": 1
+          }
+        },
+        {
+          "step": 3,
+          "observation": {
+            "game": "2048",
+            "seed": 37,
+            "step": 2,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 4,
+            "empty_cells": 13,
+            "board": [
+              [
+                0,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left"
+            ],
+            "mcts_policy": [
+              {
+                "move": "left",
+                "rank": 1,
+                "visits": 6,
+                "mean_value": 1094.393,
+                "immediate_score": 0,
+                "empty_after": 13
+              },
+              {
+                "move": "up",
+                "rank": 2,
+                "visits": 6,
+                "mean_value": 1088.613,
+                "immediate_score": 0,
+                "empty_after": 13
+              },
+              {
+                "move": "down",
+                "rank": 3,
+                "visits": 6,
+                "mean_value": 1070.187,
+                "immediate_score": 0,
+                "empty_after": 13
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks left first. The agent selects left, rank 1, after comparing rollout value and board mobility.",
+          "action": "left",
+          "reward": 1.0,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "left",
+            "best_move": "left",
+            "rank": 1,
+            "score_gained": 0,
+            "total_score": 0,
+            "correct_streak": 1,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 4,
+          "observation": {
+            "game": "2048",
+            "seed": 37,
+            "step": 3,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 4,
+            "empty_cells": 12,
+            "board": [
+              [
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "left",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1043.728,
+                "immediate_score": 0,
+                "empty_after": 12
+              },
+              {
+                "move": "down",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1039.592,
+                "immediate_score": 0,
+                "empty_after": 12
+              },
+              {
+                "move": "right",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1007.176,
+                "immediate_score": 0,
+                "empty_after": 12
+              },
+              {
+                "move": "up",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 1001.712,
+                "immediate_score": 0,
+                "empty_after": 12
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks left first. The agent selects down, rank 2, after comparing rollout value and board mobility.",
+          "action": "down",
+          "reward": -0.7,
+          "terminated": false,
+          "info": {
+            "correct": false,
+            "valid": true,
+            "chosen_move": "down",
+            "best_move": "left",
+            "rank": 2,
+            "score_gained": 0,
+            "total_score": 0,
+            "correct_streak": 0,
+            "wrong_streak": 1,
+            "reason": "legal but below top MCTS move"
+          }
+        },
+        {
+          "step": 5,
+          "observation": {
+            "game": "2048",
+            "seed": 37,
+            "step": 4,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 4,
+            "empty_cells": 11,
+            "board": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                4,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                2,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "down",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1111.44,
+                "immediate_score": 0,
+                "empty_after": 11
+              },
+              {
+                "move": "up",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1054.24,
+                "immediate_score": 0,
+                "empty_after": 11
+              },
+              {
+                "move": "left",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1031.136,
+                "immediate_score": 4,
+                "empty_after": 12
+              },
+              {
+                "move": "right",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 1019.024,
+                "immediate_score": 4,
+                "empty_after": 12
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks down first. The agent selects down, rank 1, after comparing rollout value and board mobility.",
+          "action": "down",
+          "reward": 1.0,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "down",
+            "best_move": "down",
+            "rank": 1,
+            "score_gained": 0,
+            "total_score": 0,
+            "correct_streak": 1,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 6,
+          "observation": {
+            "game": "2048",
+            "seed": 37,
+            "step": 5,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 4,
+            "empty_cells": 10,
+            "board": [
+              [
+                0,
+                2,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                4,
+                0
+              ],
+              [
+                2,
+                0,
+                2,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "down",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1064.328,
+                "immediate_score": 0,
+                "empty_after": 10
+              },
+              {
+                "move": "left",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 982.488,
+                "immediate_score": 12,
+                "empty_after": 12
+              },
+              {
+                "move": "right",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 968.696,
+                "immediate_score": 12,
+                "empty_after": 12
+              },
+              {
+                "move": "up",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 917.576,
+                "immediate_score": 0,
+                "empty_after": 10
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks down first. The agent selects down, rank 1, after comparing rollout value and board mobility.",
+          "action": "down",
+          "reward": 1.15,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "down",
+            "best_move": "down",
+            "rank": 1,
+            "score_gained": 0,
+            "total_score": 0,
+            "correct_streak": 2,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "seed": 51,
+      "label": "Recovery streak",
+      "total_reward": 2.75,
+      "steps": [
+        {
+          "step": 1,
+          "observation": {
+            "game": "2048",
+            "seed": 51,
+            "step": 1,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 2,
+            "empty_cells": 14,
+            "board": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "left",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1150.368,
+                "immediate_score": 0,
+                "empty_after": 14
+              },
+              {
+                "move": "down",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1112.296,
+                "immediate_score": 0,
+                "empty_after": 14
+              },
+              {
+                "move": "right",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1102.32,
+                "immediate_score": 0,
+                "empty_after": 14
+              },
+              {
+                "move": "up",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 1053.704,
+                "immediate_score": 0,
+                "empty_after": 14
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks left first. The agent selects right, rank 3, after comparing rollout value and board mobility.",
+          "action": "right",
+          "reward": -1.0,
+          "terminated": false,
+          "info": {
+            "correct": false,
+            "valid": true,
+            "chosen_move": "right",
+            "best_move": "left",
+            "rank": 3,
+            "score_gained": 0,
+            "total_score": 0,
+            "correct_streak": 0,
+            "wrong_streak": 1,
+            "reason": "legal but below top MCTS move"
+          }
+        },
+        {
+          "step": 2,
+          "observation": {
+            "game": "2048",
+            "seed": 51,
+            "step": 2,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 2,
+            "empty_cells": 13,
+            "board": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                2,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "right",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1088.056,
+                "immediate_score": 0,
+                "empty_after": 13
+              },
+              {
+                "move": "down",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1070.168,
+                "immediate_score": 4,
+                "empty_after": 14
+              },
+              {
+                "move": "left",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1058.552,
+                "immediate_score": 0,
+                "empty_after": 13
+              },
+              {
+                "move": "up",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 1021.904,
+                "immediate_score": 4,
+                "empty_after": 14
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks right first. The agent selects right, rank 1, after comparing rollout value and board mobility.",
+          "action": "right",
+          "reward": 1.0,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "right",
+            "best_move": "right",
+            "rank": 1,
+            "score_gained": 0,
+            "total_score": 0,
+            "correct_streak": 1,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 3,
+          "observation": {
+            "game": "2048",
+            "seed": 51,
+            "step": 3,
+            "max_steps": 6,
+            "score": 0,
+            "max_tile": 2,
+            "empty_cells": 12,
+            "board": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                2,
+                0,
+                2
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "down",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1079.8,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "up",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1054.704,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "right",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1051.048,
+                "immediate_score": 4,
+                "empty_after": 13
+              },
+              {
+                "move": "left",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 1011.448,
+                "immediate_score": 4,
+                "empty_after": 13
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks down first. The agent selects down, rank 1, after comparing rollout value and board mobility.",
+          "action": "down",
+          "reward": 1.15,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "down",
+            "best_move": "down",
+            "rank": 1,
+            "score_gained": 4,
+            "total_score": 4,
+            "correct_streak": 2,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 4,
+          "observation": {
+            "game": "2048",
+            "seed": 51,
+            "step": 4,
+            "max_steps": 6,
+            "score": 4,
+            "max_tile": 4,
+            "empty_cells": 12,
+            "board": [
+              [
+                0,
+                4,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                2,
+                0,
+                4
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "up",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1067.656,
+                "immediate_score": 0,
+                "empty_after": 12
+              },
+              {
+                "move": "down",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1048.712,
+                "immediate_score": 0,
+                "empty_after": 12
+              },
+              {
+                "move": "left",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1047.368,
+                "immediate_score": 0,
+                "empty_after": 12
+              },
+              {
+                "move": "right",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 936.4,
+                "immediate_score": 0,
+                "empty_after": 12
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks up first. The agent selects up, rank 1, after comparing rollout value and board mobility.",
+          "action": "up",
+          "reward": 1.3,
+          "terminated": false,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "up",
+            "best_move": "up",
+            "rank": 1,
+            "score_gained": 0,
+            "total_score": 4,
+            "correct_streak": 3,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        },
+        {
+          "step": 5,
+          "observation": {
+            "game": "2048",
+            "seed": 51,
+            "step": 5,
+            "max_steps": 6,
+            "score": 4,
+            "max_tile": 4,
+            "empty_cells": 11,
+            "board": [
+              [
+                0,
+                4,
+                0,
+                2
+              ],
+              [
+                0,
+                2,
+                0,
+                4
+              ],
+              [
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "down",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1047.624,
+                "immediate_score": 0,
+                "empty_after": 11
+              },
+              {
+                "move": "right",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 1008.488,
+                "immediate_score": 0,
+                "empty_after": 11
+              },
+              {
+                "move": "left",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 1006.536,
+                "immediate_score": 0,
+                "empty_after": 11
+              },
+              {
+                "move": "up",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 935.4,
+                "immediate_score": 0,
+                "empty_after": 11
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks down first. The agent selects right, rank 2, after comparing rollout value and board mobility.",
+          "action": "right",
+          "reward": -0.7,
+          "terminated": false,
+          "info": {
+            "correct": false,
+            "valid": true,
+            "chosen_move": "right",
+            "best_move": "down",
+            "rank": 2,
+            "score_gained": 0,
+            "total_score": 4,
+            "correct_streak": 0,
+            "wrong_streak": 1,
+            "reason": "legal but below top MCTS move"
+          }
+        },
+        {
+          "step": 6,
+          "observation": {
+            "game": "2048",
+            "seed": 51,
+            "step": 6,
+            "max_steps": 6,
+            "score": 4,
+            "max_tile": 4,
+            "empty_cells": 10,
+            "board": [
+              [
+                0,
+                0,
+                4,
+                2
+              ],
+              [
+                0,
+                2,
+                2,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "valid_moves": [
+              "up",
+              "down",
+              "left",
+              "right"
+            ],
+            "mcts_policy": [
+              {
+                "move": "left",
+                "rank": 1,
+                "visits": 5,
+                "mean_value": 1033.288,
+                "immediate_score": 4,
+                "empty_after": 11
+              },
+              {
+                "move": "right",
+                "rank": 2,
+                "visits": 5,
+                "mean_value": 996.88,
+                "immediate_score": 4,
+                "empty_after": 11
+              },
+              {
+                "move": "up",
+                "rank": 3,
+                "visits": 5,
+                "mean_value": 957.464,
+                "immediate_score": 0,
+                "empty_after": 10
+              },
+              {
+                "move": "down",
+                "rank": 4,
+                "visits": 5,
+                "mean_value": 894.032,
+                "immediate_score": 0,
+                "empty_after": 10
+              }
+            ],
+            "instructions": "Choose one move: up, down, left, or right. The policy table is produced by Monte Carlo tree search rollouts; the best move is rank 1. Rewards are non-binary: rank-1 moves earn increasing positive streak rewards, while lower-ranked or invalid moves receive increasing negative penalties."
+          },
+          "reasoning": "The policy table ranks left first. The agent selects left, rank 1, after comparing rollout value and board mobility.",
+          "action": "left",
+          "reward": 1.0,
+          "terminated": true,
+          "info": {
+            "correct": true,
+            "valid": true,
+            "chosen_move": "left",
+            "best_move": "left",
+            "rank": 1,
+            "score_gained": 4,
+            "total_score": 8,
+            "correct_streak": 1,
+            "wrong_streak": 0,
+            "reason": "matched top MCTS move"
+          }
+        }
+      ]
+    }
+  ]
+}

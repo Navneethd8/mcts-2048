@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MCTS 2048 Showcase</title>
+    <link rel="stylesheet" href="./styles.css?v=1.0.0" />
+  </head>
+  <body>
+    <nav class="top-nav" aria-label="Showcase navigation">
+      <a href="#overview">Overview</a>
+      <a href="#environment">Environment</a>
+      <a href="#results">Results</a>
+      <a href="#replay">Replay</a>
+    </nav>
+
+    <main class="shell">
+      <section class="hero" id="overview">
+        <div class="eyebrow">SWECCathon · Mesocosm Benchmark</div>
+        <div class="hero-grid">
+          <div>
+            <h1>2048 move selection, judged by Monte Carlo tree search.</h1>
+            <p>
+              MCTS 2048 asks agents to choose the next move from a live 2048 board. The
+              environment computes a rollout-based policy table and grades each action with
+              a non-binary reward that grows for correct streaks and escalates penalties for
+              bad moves.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#replay">Open Replay</a>
+              <a class="button secondary" href="#environment">Read Design</a>
+            </div>
+          </div>
+          <aside class="score-card">
+            <span class="label">Average Episode Reward</span>
+            <strong id="averageReward">--</strong>
+            <span id="runMeta">Loading replay...</span>
+          </aside>
+        </div>
+      </section>
+
+      <section class="metrics" id="metrics" aria-label="Run metrics"></section>
+
+      <section class="dashboard-grid" id="environment">
+        <article class="story-card wide">
+          <div class="eyebrow">Environment Context</div>
+          <h2>A compact planning benchmark</h2>
+          <p>
+            Every observation contains the current board, score, legal moves, and an MCTS
+            policy table. The table is produced from numpy/pandas rollouts and gives agents
+            a transparent target: return the rank-1 move whenever possible.
+          </p>
+        </article>
+        <article class="story-card">
+          <div class="eyebrow">State</div>
+          <h3>4x4 Board</h3>
+          <p>Agents see the full tile grid, max tile, score, empty cells, and valid move list.</p>
+        </article>
+        <article class="story-card">
+          <div class="eyebrow">Teacher</div>
+          <h3>MCTS Policy</h3>
+          <p>Rollouts estimate value for each legal move, then rank moves by value and mobility.</p>
+        </article>
+        <article class="story-card">
+          <div class="eyebrow">Reward</div>
+          <h3>Shaped Scalar</h3>
+          <p>Rank-1 moves earn up to +2. Lower-ranked and invalid moves fall as low as -2.</p>
+        </article>
+      </section>
+
+      <section class="results-board" id="results">
+        <div>
+          <div class="eyebrow">Latest Run</div>
+          <h2>Replay Summary</h2>
+          <p>This static page is backed by a deterministic replay generated from the env code.</p>
+        </div>
+        <div class="result-cards">
+          <div class="result-card">
+            <span>Run ID</span>
+            <strong id="runIdPill">--</strong>
+          </div>
+          <div class="result-card">
+            <span>Top-Move Matches</span>
+            <strong id="correctCount">--</strong>
+          </div>
+          <div class="result-card">
+            <span>Penalty Steps</span>
+            <strong id="penaltyCount">--</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage" id="replay">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Interactive Replay</div>
+            <h2>Follow the board, policy, and reward</h2>
+          </div>
+          <div class="tabs" id="episodeTabs" aria-label="Episode selector"></div>
+        </div>
+
+        <article class="episode-card">
+          <div class="match-header">
+            <div>
+              <span class="label" id="episodeMeta">Episode</span>
+              <h3 id="episodeTitle">Loading...</h3>
+            </div>
+            <div class="reward-pill" id="rewardPill">Reward --</div>
+          </div>
+
+          <div class="content-grid">
+            <section class="panel">
+              <div class="panel-title">2048 Board</div>
+              <div class="board" id="board"></div>
+              <div class="board-stats" id="boardStats"></div>
+              <div class="panel-title">MCTS Policy</div>
+              <div class="policy-table" id="policyTable"></div>
+            </section>
+
+            <section class="panel chat-panel">
+              <div class="panel-title chat-title">
+                <span>Agent Trace</span>
+                <button class="replay-button" id="nextStepButton" type="button">Next Step</button>
+              </div>
+              <div class="chat-window" id="chatWindow" aria-live="polite"></div>
+              <div class="answer-row">
+                <div>
+                  <span class="label">Chosen Move</span>
+                  <strong id="chosenMove">--</strong>
+                </div>
+                <div>
+                  <span class="label">Best Move</span>
+                  <strong id="bestMove">--</strong>
+                </div>
+              </div>
+            </section>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js?v=1.0.0"></script>
+  </body>
+</html>
